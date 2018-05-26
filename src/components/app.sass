@@ -1,0 +1,24 @@
+@import '../static/styles/colors'
+
+.container__header
+  padding: .4rem 0
+  font-size: 2.5rem
+
+.wrapper_features
+  display: flex
+  justify-content: space-between
+  margin-top: 1rem
+
+.features
+  color: $main_color
+  font-size: 1.4rem
+  margin-right: 2rem
+  position: relative
+  &:after
+    content: ''
+    width: 2px
+    height: 100%
+    background-color: $main_color
+    position: absolute
+    top: 0
+    right: -1rem

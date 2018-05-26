@@ -1,0 +1,80 @@
+import webpack from "webpack";
+import path from "path";
+import ExtractTextPlugin from "extract-text-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+
+const GLOBALS = {
+  "process.env.NODE_ENV": JSON.stringify("production")
+};
+
+export default {
+  devtool: "source-map",
+  entry: ["./src/index"],
+  target: "web",
+  output: {
+    path: `${__dirname}/dist`,
+    publicPath: "/",
+    filename: "[chunkhash].js"
+  },
+  devServer: {
+    contentBase: "./dist"
+  },
+  plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.DefinePlugin(GLOBALS),
+    new ExtractTextPlugin("styles.css"),
+    new HtmlWebpackPlugin({ template: "src/index.prod.html", inject: "body" }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        include: path.join(__dirname, "src"),
+        use: ["babel-loader"]
+      },
+      {
+        test: /\.(sass|scss|css)$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        }),
+        include: [/node_modules/],
+        exclude: [/src/]
+      },
+      {
+        test: /\.(sass|scss|css)/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use:
+            "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader"
+        }),
+        exclude: [/node_modules/],
+        include: [/src/]
+      },
+      {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "file-loader"
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        loader: "url-loader?prefix=font/&limit=5000"
+      },
+      {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=application/octet-stream"
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=image/svg+xml"
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: "url-loader?limit=10000"
+      }
+    ]
+  }
+};
