@@ -1,9 +1,8 @@
 {
-  "name": "ac-challenge",
+  "name": "re-redux-boilerplate",
   "version": "1.0.0",
-  "description": "A Avenue Code Challenge - Host Locate",
+  "description": "A React Redux boilerplate",
   "main": "index.js",
-  "repository": "https://github.com/lipeprado/ac-challenge.git",
   "author": "Filipe Prado <fi-lipe2010@hotmail.com>",
   "license": "MIT",
   "scripts": {

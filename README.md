@@ -1,4 +1,4 @@
-# A Avenue Code Challenge - Host Locate
+# React Redux Boilerplate
 
 ### Features
 
