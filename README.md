@@ -8,19 +8,23 @@
 * Webpack
 * Eslint ( Airbnb )
 * Modular styles with sass-loader
-* Mocha & Chai for test
+* Jest & Enzyme ( to handle with Tests )
+* moment.js ( to handle with Date )
+* axios ( to handle with HTTP Requests)
 
 #### Features
 
 * Login with username and passwor
 * JWT token
-* Tests with Mocha and Chai
+* Tests with Jest and Enzyme
 
 ```
 - How to Install
 
 * git clone https://github.com/lipeprado/onidata-challenge.git
+* cd onidata-challenge/
 * npm install
-* npm run start
+* npm start
+* npm test ( to run all test )
 * Open file inside app.js ./src/components
 ```

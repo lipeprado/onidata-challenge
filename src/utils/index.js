@@ -20,5 +20,6 @@ export const clearAxiosDefaults = () => {
 };
 
 export const apiOni = axios.create({
-  baseURL: `${API_ONI}/`
+  baseURL: `${API_ONI}`,
+  crossDomain: true
 });

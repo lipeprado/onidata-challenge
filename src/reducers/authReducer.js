@@ -19,6 +19,12 @@ export default function(state = initialState.auth, action) {
         isAuthenticating: false,
         isAuthenticated: false
       });
+    case types.NO_TOKEN:
+      return Object.assign({}, state, {
+        isAuthenticated: false,
+        isAuthenticating: false,
+        auth_user: {}
+      });
     default:
       return state;
   }

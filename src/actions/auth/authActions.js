@@ -19,33 +19,28 @@ export const login = user => {
   return async dispatch => {
     try {
       dispatch(authRequest());
-      const response = await apiOni.post("login", user);
+      const response = await apiOni.post("login/", {
+        username: user.username,
+        password: user.password
+      });
       authUser(response, dispatch);
       return response.data.token;
     } catch (error) {
       dispatch(authFailed());
-      throw err;
+      throw { error };
     }
   };
 };
 
-export function noToken() {
+export const noToken = () => {
   return { type: types.NO_TOKEN };
-}
-
-export function clearStore() {
-  return { type: types.CLEAR_STORE };
-}
+};
 
 export const logout = () => {
   return async dispatch => {
-    secApi.get("logout");
     dispatch(noToken());
     localStorage.removeItem(TOKEN_NAME);
-    localStorage.removeItem("current_sector");
-    localStorage.removeItem("selected_user");
     setAuthToken(false);
-    dispatch(clearStore());
   };
 };
 
