@@ -34,6 +34,12 @@ export default {
         use: ["babel-loader"]
       },
       {
+        test: /test\.js$/,
+        include: path.join(__dirname, "src"),
+        use: "mocha-loader",
+        exclude: [/node_modules/]
+      },
+      {
         test: /\.(sass|scss|css)$/,
         loader: "style-loader!css-loader!sass-loader",
         include: [/node_modules/],

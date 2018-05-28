@@ -11,12 +11,26 @@ import styles from "./styles.sass";
 import logo from "../../static/images/logo.png";
 
 class LoginContainer extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  handleInputChange() {
+    return "teste";
+  }
+
+  onSubmit() {
+    console.log("Called");
+  }
+
   render() {
     return (
       <div className={styles.loginContainer}>
         <div className={styles.wrapper}>
           <img className={styles.logo} src={logo} alt="Logo Onidata" />
-          <LoginForm />
+          <LoginForm onSubmit={this.onSubmit} />
         </div>
       </div>
     );

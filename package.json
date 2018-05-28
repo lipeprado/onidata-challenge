@@ -6,6 +6,7 @@
   "author": "Filipe Prado <fi-lipe2010@hotmail.com>",
   "license": "MIT",
   "scripts": {
+    "test": "jest",
     "start": "npm-run-all --parallel dev-server lint:watch",
     "dev-server": "babel-node server/devServer.js",
     "lint": "node_modules/.bin/esw webpack.config.dev.js src",
@@ -20,19 +21,32 @@
     "precompress": "npm run remove-gzip && mkdir dist_gzip",
     "compress": "babel-node server/compress.js"
   },
+  "jest": {
+    "setupFiles": [
+      "./config/jest/setup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss|less|sass)$": "<rootDir>/config/jest/styleMock.js",
+      "\\.(png|jpg|gif|ttf|eot|svg)$": "<rootDir>/config/jest/fileMock.js"
+    }
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "babel-loader": "^7.1.4",
-    "babel-polyfill": "^6.26.0",
-    "babel-register": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
     "chalk": "^2.4.1",
     "compression": "^1.7.2",
     "css-loader": "^0.28.11",
     "css-reset-and-normalize-sass": "^0.1.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
     "eslint-watch": "^3.1.5",
+    "expect": "^23.0.1",
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
@@ -47,6 +61,7 @@
     "open": "0.0.5",
     "optimize-css-assets-webpack-plugin": "^4.0.1",
     "prop-types": "^15.6.1",
+    "raf": "^3.4.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-fontawesome": "^1.6.1",
@@ -66,12 +81,15 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-jest": "^23.0.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-hmre": "^1.1.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.8.2"
+    "eslint-plugin-react": "^7.8.2",
+    "jest": "^23.0.1",
+    "react-test-renderer": "^16.4.0"
   }
 }
