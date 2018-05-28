@@ -1,17 +1,26 @@
-# React Redux Boilerplate
+## React Redux Boilerplate
 
-### Features
+#### Tools
 
-* React
-* Redux ( all set )
+* React 16.4
+* Redux ( set to manage application state )
 * Sass || Scss || Css
-* Jquery ( if you like to play )
 * Webpack
 * Eslint ( Airbnb )
-* Modular styles
+* Modular styles with sass-loader
+* Mocha & Chai for test
 
-#### How to Install
+#### Features
 
-* `npm install`
-* `npm run start`
-* `Open file inside app.js ./src/components`
+* Login with username and passwor
+* JWT token
+* Tests with Mocha and Chai
+
+```
+- How to Install
+
+* git clone https://github.com/lipeprado/onidata-challenge.git
+* npm install
+* npm run start
+* Open file inside app.js ./src/components
+```
