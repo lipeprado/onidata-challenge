@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import location from "./locationReducer";
+import auth from "./authReducer";
 
 const appReducer = combineReducers({
-  location
+  auth
 });
 
 export default appReducer;
