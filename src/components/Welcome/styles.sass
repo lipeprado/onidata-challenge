@@ -1,0 +1,44 @@
+@import '../../static//styles/colors'
+
+.wrapper
+  height: 100vh
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  position: relative
+  h1
+    font-size: 1.5rem
+    color: $details
+  .welcomeHeader
+    font-size: 2rem
+    font-family: "Montserrat-Bold"
+    color: $main_color
+    margin: 1rem 0
+  .userInfo
+    display: flex
+    flex-direction: column
+    align-items: center
+    span
+      margin-top: 1rem
+
+.logout
+  position: fixed
+  top: 1rem
+  right: 1rem
+  font-size: 1rem
+  cursor: pointer
+  padding: .4rem 1rem
+  border-radius: .4rem
+  transition: all .2s ease-in-out
+  &:hover
+    padding: .4rem  1rem
+    color: white
+    background-color: darken($main_color, 30%)
+  span
+    margin: .4rem
+  
+.token
+  font-family: "Montserrat-Regular"
+  font-size: 1rem
+  margin: 1rem 0
