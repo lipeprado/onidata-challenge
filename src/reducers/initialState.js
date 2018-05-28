@@ -1,6 +1,7 @@
 export default {
-  location: {
-    host: null,
-    ip: null
+  auth: {
+    isAuthenticated: false,
+    isAuthenticating: false,
+    auth_user: {}
   }
 };
