@@ -14,7 +14,7 @@
 
 #### Features
 
-* Login with username and passwor
+* Login with username and password
 * JWT token
 * Tests with Jest and Enzyme
 

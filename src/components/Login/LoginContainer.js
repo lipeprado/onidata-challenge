@@ -49,7 +49,7 @@ export class LoginContainer extends Component {
     actions
       .login(auth)
       .then(() => {
-        toastr.success("Bem vindo ao nosso Sistem");
+        toastr.success("Bem vindo ao nosso Sistema");
       })
       .catch(error => {
         const err = error.error.response.data.non_field_errors[0];
